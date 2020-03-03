@@ -17,25 +17,28 @@ require_once('./php/component.php');
 <body>
     
 <main>
-<div class="container text-center">
-<h1 class="py-4 bg-dark text-light rounded"><i class="fas fa-swatchbook"></i> Book Store</h1>
+    <div class="container text-center">
+        <h1 class="py-4 bg-dark text-light rounded"><i class="fas fa-swatchbook"></i> Book Store</h1>
 
-<div class="d-flex justify-content-center">
-    <form action="" method="post" class="w-50">
-        <div class="py-2">
-            <div class="input-group mb-2">
-                <div class="input-group-prepend">
-                <div class="input-group-text bg-warning"><i class="fas fa-id-badge"></i></div>
+        <div class="d-flex justify-content-center">
+            <form action="" method="post" class="w-50">
+                <div class="py-2">
+                    <?php inputElement("<i class='fas fa-id-badge'></i>", "ID", "book_id", ""); ?>
                 </div>
-                <input type="text" autocomplete="off" placeholder="ID" class="form-control" id="inlineFormInputGroup">
-            </div>
+                <div class="pt-2">
+                    <?php inputElement("<i class='fas fa-book'></i>", "Book Name", "book_name", ""); ?>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <?php inputElement("<i class='fas fa-people-carry'></i>", "Publisher", "book_publisher", ""); ?>
+                    </div>
+                    <div class="col">
+                        <?php inputElement("<i class='fas fa-dollar-sign'></i>", "Price", "book_price", ""); ?>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="pt-2">
-            <?php inputElement(); ?>
-        </div>
-    </form>
-</div>
-</div>
+    </div>
 </main>
 
 
