@@ -17,6 +17,10 @@ if(isset($_POST['delete'])){
     deleteRecord();
 }
 
+if(isset($_POST['deleteall'])){
+    deleteAll();
+}
+
 
 function createData(){
     $bookname = textboxValue("book_name");
@@ -94,4 +98,41 @@ function deleteRecord(){
     }else{
         TextNode("error", "Enable to Delete Record...!");
     }
+}
+
+function deleteBtn(){
+    $result = getData();
+    $i = 0;
+    if($result){
+        while($row = mysqli_fetch_assoc($result)){
+            $i++;
+            if( $i > 3){
+                buttonElement("btn-deleteall", "btn btn-danger", "<i class='fas fa-trash'></i> Delete All", "deleteall", "");
+                return;
+            }
+        }
+    }
+}
+
+function deleteAll(){
+    $sql = "DROP TABLE books";
+
+    if(mysqli_query($GLOBALS['con'], $sql)){
+        TextNode("success", "All Record Deleted Successfully...!");
+        Createdb();
+    }else{
+        TextNode("error", "Something Went Wrong Record cannot Deleted...!");
+
+    }
+}
+
+function setID(){
+    $getid = getData();
+    $id = 0;
+    if($getid){
+        while($row = mysqli_fetch_assoc($getid)){
+            $id = $row['id'];
+        }
+    }
+    return($id+1);
 }
