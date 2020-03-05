@@ -1,5 +1,9 @@
 <?php
 require_once('./php/component.php');
+require_once('./php/db.php');
+
+Createdb();
+
 ?>
 
 
@@ -57,6 +61,15 @@ require_once('./php/component.php');
                         <th>Edit</th>
                     </tr>
                 </thead>
+                <tbody id="tbody">
+                    <tr>
+                        <td>1</td>
+                        <td>Book name</td>
+                        <td>Daily Tution</td>
+                        <td>44.99</td>
+                        <td><i class="fas fa-edit btnedit"></i></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
